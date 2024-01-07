@@ -1,22 +1,2 @@
 #!/bin/bash
-if [ ! -d "basics_dir" ]; then
-    echo "basics directory 'basics_dir' does not exist."
-    exit 1
-fi
-if [ ! -d "$dest_dir" ]; then
-    echo "Destination directory '$dest_dir' does not exist."
-    exit 1
-fi
-
-# Copy HTML files from source to destination
-for file in "$src_dir"/*.html; do
-    filename=$(basename "$file")
-
-    # Check if the file does not exist in the destination or is newer
-    if [ ! -e "$dest_dir/$filename" ] || [ "$file" -nt "$dest_dir/$filename" ]; then
-        cp "$file" "$dest_dir/$filename"
-        echo "Copied '$filename' to '$dest_dir'."
-    fi
-done
-
-echo "HTML files copied to '$dest_dir'."
+cp basics/*.html ../atlas-shell
