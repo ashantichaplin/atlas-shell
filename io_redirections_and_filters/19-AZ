@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$input" | tr 'A' 'Z' | tr 'c' 'e'
+input="${input//A/Zc/e}"
