@@ -1,2 +1,2 @@
 #!/bin/bash
-input="${input//A/Zc/e}"
+tr 'A' 'Z' | tr 'c' 'e'i
