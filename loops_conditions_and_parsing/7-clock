@@ -1,23 +1,14 @@
 #!/usr/bin/env bash
-# Display time for 12 hours and 59 minutes without using for or until loops.
+# Display time for 12 hours and 59 minutes using a while loop.
 
 hour=0
 minute=0
 lines_to_display=70
-count=0
 
-while [ $count -lt $lines_to_display ]; do
+while [ $hour -lt 13 ] && [ $minute -lt 59 ] && [ $hour -ne 12 ] || [ $minute -ne 0 ]; do
     if [ $minute -eq 0 ]; then
         printf "Hour: %d\n" $hour
     fi
-    printf "%02d\n" $((minute%60))
-    ((minute++))
-    if [ $minute -eq 60 ]; then
-        ((hour++))
-        minute=0
-    fi
-    if [ $hour -eq 12 ] && [ $minute -eq 0 ]; then
-        break
-    fi
-    ((count++))
-done
+    printf "%02d\n" $((++minute))
+    ((minute==60)) && ((minute=0, ++hour))
+done | head -n $lines_to_display
