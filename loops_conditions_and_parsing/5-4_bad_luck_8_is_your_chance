@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Loop from 1 to 10 and display messages based on conditions.
+
+count=1
+while ((count <= 10)); do
+    case $count in
+        4) echo "Bad luck" ;;
+        8) echo "Good luck" ;;
+        *) echo "Best School" ;;
+    esac
+    ((count++))
+done
